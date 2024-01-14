@@ -9,7 +9,7 @@ const Pagination = () => {
         {page > 1 && (
           <button onClick={() => handlePageChange(page - 1)}>Previous</button>
         )}
-        {totalPages && (
+        {page < totalPages && (
           <button onClick={() => handlePageChange(page + 1)}>Next</button>
         )}
         <p>
