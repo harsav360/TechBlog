@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const Pagination = () => {
-  return <div>Pagination</div>;
+  const { page, handlePageChange, totalPages } = useContext(AppContext);
+  return (
+    <div>
+      <div>
+        {page > 1 && (
+          <button onClick={() => handlePageChange(page - 1)}>Previous</button>
+        )}
+        {totalPages && (
+          <button onClick={() => handlePageChange(page + 1)}>Next</button>
+        )}
+        <p>
+          Page {page} of {totalPages}
+        </p>
+      </div>
+    </div>
+  );
 };
 
 export default Pagination;
